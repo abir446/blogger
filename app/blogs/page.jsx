@@ -1,21 +1,17 @@
 import React from "react";
 import { auth, signOut } from "@/auth";
+import Signout from "@/components/auth/Signout";
+import Login from "../pages/Login";
 
 const page = async () => {
   const session = await auth();
-  if (!session) return <h1>Not authorised</h1>;
+  if (!session) return <Login />;
   return (
     <div>
-      <form
-        action={async () => {
-          "use server";
-          await signOut();
-        }}
-      >
-        <button type="submit">Sign Out</button>
-      </form>
-
-      <h1>Hello This is where all the blog posts should be</h1>
+      <div>
+        <h1>Hello, {session.user.name}!</h1>
+        <Signout />
+      </div>
     </div>
   );
 };
