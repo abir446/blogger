@@ -1,6 +1,7 @@
 import React from "react";
 import { auth, signOut } from "@/auth";
 import Signout from "@/components/auth/Signout";
+import Link from "next/link";
 
 const Navbar = async () => {
   const session = await auth();
@@ -11,7 +12,7 @@ const Navbar = async () => {
       </h1>
       <div className="flex gap-5 font-mono md:text-lg">
         <span className="hover:underline hover:underline-offset-4 ">
-          New Post
+          <Link href={"/pages/newpost"}>New Post</Link>
         </span>
         <Signout />
       </div>
