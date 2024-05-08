@@ -10,7 +10,12 @@ const Signout = () => {
           await signOut();
         }}
       >
-        <button type="submit">Sign Out</button>
+        <button
+          className="hover:underline hover:underline-offset-4"
+          type="submit"
+        >
+          Sign Out
+        </button>
       </form>
     </div>
   );
